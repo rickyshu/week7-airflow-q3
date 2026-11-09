@@ -1,0 +1,36 @@
+services:
+  spark-master:
+    image: apache/spark:3.5.8-python3
+    command:
+      - /opt/spark/bin/spark-class
+      - org.apache.spark.deploy.master.Master
+      - --host
+      - spark-master
+      - --port
+      - "7077"
+    ports:
+      - "127.0.0.1:8081:8080"
+    # Load the script and input into these shared volumes using compose cp.
+    volumes:
+      - spark-jobs:/opt/spark/jobs
+      - spark-data:/opt/spark/data
+
+  spark-worker:
+    image: apache/spark:3.5.8-python3
+    depends_on:
+      - spark-master
+    command:
+      - /opt/spark/bin/spark-class
+      - org.apache.spark.deploy.worker.Worker
+      - --cores
+      - "1"
+      - --memory
+      - 1g
+      - spark://spark-master:7077
+    volumes:
+      - spark-jobs:/opt/spark/jobs:ro
+      - spark-data:/opt/spark/data:ro
+
+volumes:
+  spark-jobs:
+  spark-data:
