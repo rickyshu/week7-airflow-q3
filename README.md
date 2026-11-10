@@ -16,3 +16,11 @@ docker compose up -d
 Airflow 화면은 <http://localhost:8080>에서 확인합니다. 실습용 기본 계정은 `airflow` / `airflow`입니다. Docker Compose 빠른 시작 구성은 학습용이며 운영 환경 배포용이 아닙니다.
 
 과제 증빙 캡처와 Git 변경 기록은 저장소 밖의 `../Q3/`에 보관합니다.
+
+## 실습 환경
+
+로컬에서 Airflow와 Spark를 실행했습니다.
+
+## 회고
+
+데이터 파이프라인의 실행 흐름을 확인했습니다.
