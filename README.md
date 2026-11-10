@@ -19,8 +19,8 @@ Airflow 화면은 <http://localhost:8080>에서 확인합니다. 실습용 기�
 
 ## 실습 환경
 
-로컬에서 Airflow와 Spark를 실행했습니다.
+Docker Compose에서 Airflow 스케줄러와 워커를 실행하고 AWS S3를 사용했습니다.
 
 ## 회고
 
-데이터 파이프라인의 실행 흐름을 확인했습니다.
+Airflow에서 태스크 의존성을 정의하고 각 태스크의 성공 여부를 로그로 확인했습니다.
